@@ -49,6 +49,57 @@ public struct StateChip: View {
     }
 }
 
+// MARK: - Section label
+
+/// The small-caps section heading above a group of controls ("SETTINGS", "RECENT GAMES").
+public struct SectionLabel: View {
+    private let text: String
+
+    public init(_ text: String) {
+        self.text = text
+    }
+
+    public var body: some View {
+        Text(text)
+            .font(.system(size: 10.5, weight: .semibold))
+            .kerning(0.7)
+            .textCase(.uppercase)
+            .foregroundStyle(.tertiary)
+            .padding(.horizontal, Theme.Space.xs)
+    }
+}
+
+// MARK: - Footer chip
+
+/// A small glass capsule for the popover's bottom bar — an icon-and-text action that reads as
+/// quiet secondary UI.
+public struct FooterChip: View {
+    private let text: String
+    private let systemImage: String
+    private let action: () -> Void
+
+    public init(text: String, systemImage: String, action: @escaping () -> Void) {
+        self.text = text
+        self.systemImage = systemImage
+        self.action = action
+    }
+
+    public var body: some View {
+        Button(action: action) {
+            Label {
+                Text(text)
+                    .lineLimit(1)
+            } icon: {
+                Image(systemName: systemImage)
+            }
+            .font(.caption)
+            .foregroundStyle(.secondary)
+        }
+        .buttonStyle(.glass)
+        .controlSize(.small)
+    }
+}
+
 // MARK: - Popover menu item style
 
 /// A full-width, left-aligned button with a subtle hover fill — the popover's primary action row

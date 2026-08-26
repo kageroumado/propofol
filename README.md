@@ -10,7 +10,11 @@ radius/spacing ladder, one popover width, and the same header, chips, and badges
   `controlShape` continuous rounded rectangles. Plus `Font.heroTitle` and `Font.toolName`.
 - **`.glassCard(cornerRadius:tint:)`** — wraps a view in a Liquid Glass card at the standard
   radius; tint it with the app accent for the active hero.
-- **`PopoverHeader("AppName")`** — the popover's first row: hero-face app name + `AttributionLink`.
+- **`PopoverHeader("AppName")`** — the popover's first row: hero-face app name + `AttributionLink` (links to kagerou.glass).
+- **`PillPicker`** — Safari-style capsule selector: glass capsule, accent pill sliding behind the
+  selection; pass the app's `onTint` for the label on the accent.
+- **`SectionLabel`**, **`FooterChip`** — small-caps section heading; small glass capsule action
+  for the bottom bar.
 - **`StateChip`**, **`StatusDot`** — capsule badge and state dot.
 - **`.popoverItem`** (`PopoverMenuItemStyle`) — full-width hover-fill action row.
 

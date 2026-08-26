@@ -24,14 +24,15 @@ public struct PopoverHeader: View {
 
 /// The "made by kageroumado" credit in the popover header. Reads as quiet secondary text but signals
 /// it's a link with a trailing external-link arrow, and underlines on hover so the affordance is
-/// unmistakable once the pointer lands on it.
+/// unmistakable once the pointer lands on it. Points at the site, which links onward to GitHub
+/// and everything else.
 public struct AttributionLink: View {
     @State private var hovering = false
 
     public init() {}
 
     public var body: some View {
-        Link(destination: URL(string: "https://github.com/kageroumado")!) {
+        Link(destination: URL(string: "https://kagerou.glass")!) {
             HStack(spacing: 2) {
                 Text("made by kageroumado")
                     .underline(hovering)
